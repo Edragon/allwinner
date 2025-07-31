@@ -1,0 +1,21 @@
+-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+-- Function: VersionTab.ulf
+-- Coment:	 Define the list of all the software release
+-- Author: 	 Sam Lau
+-- Date:	 2011-11-11
+-- History:	 
+-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+EStudioSWList= 
+{ 
+	{GUID="2D3B1A2D-5077-4144-9A0E-9B21F00288A1", List="/LiveSuit/updatelist.cfg"},
+	{GUID="F06D75C4-BF4D-4054-B4D2-7AC21B61C2DB", List="/PhoenixPro/updatelist.cfg"},
+	{GUID="97B0F1B2-6B94-4ecf-B9FE-D96EF0710849", List="/dragonface/updatelist.cfg"},
+	{GUID="ADFEF74D-6D16-463d-8A5B-9B1C09F96541", List="/phoenixsuit/updatelist.cfg"},
+	{GUID="04491C7D-6507-4a3b-BA06-C2C2DDAF0A3C", List="/phoenixcard/updatelist.cfg"},
+	{GUID="E08366FF-B797-43ab-87A6-6849EA14C611", List="/OEMDataPack/updatelist.cfg"},
+	{GUID="35D0FE9D-EED8-472d-9469-C93C15CE794B", List="/PhoenixUSBPro/updatelist.cfg"},
+	{GUID="81106615-0A41-4f70-88B3-3659235A32AD", List="/dragonfaceEx/updatelist.cfg"},
+	{GUID="C7613C51-04BB-42e7-8480-619ABBBCAB1F", List="/dragonfacefactory/updatelist.cfg"},
+	{GUID="96B79EC2-98CF-4147-943F-F32331AC420C", List="/phoenixcardbatch/updatelist.cfg"},
+}

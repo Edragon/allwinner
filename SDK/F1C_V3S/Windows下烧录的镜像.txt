@@ -1,0 +1,59 @@
+【目录】
+1、文件说明
+2、镜像写入
+3、启动lichee zero
+4、扩展根目录添加swap分区
+5、已知的问题
+6、ToDo
+7、下载地址
+
+ 【文件说明】
+  pack_zero_img.sh -->打包脚本
+  minX_dd.tar.bz2  -->包含X的最小系统
+  mindb_dd.tar.gz  -->Debian，含gcc、python等
+  brpy_dd.tar.bz2  -->buildroot系统，包含python
+  brmin_dd.tar.bz2  -->buildroot最小系统
+  minmin_dd.tar.bz2  -->最小Debian
+  lichee_zero_test_Debian_LXDE.tar.bz2  -->带LXDE桌面的Debian系统
+
+  均基于群主的rootfs制作，
+  建议测试brpy_dd、mindb_dd以及minX_dd。
+
+  所有镜像均是个人制作的测试版本（Alpha version）
+
+ 【镜像写入】
+  请确保将要被写入的sd卡中没有重要文件！！
+  将下载好的镜像解压，Linux下用tar就行，windows下推荐用7zip（http://www.7-zip.org/download.html）。
+  解压后建议校验MD5值，以防文件有问题。
+  linux下直接dd写入sd卡，windows下请准备TF card format（https://www.sdcard.org/downloads/formatter_4/eula_windows/）
+  和Win32 Diskimager（http://sourceforge.net/projects/win32diskimager/files/Archive/）。
+  建议参考http://www.orangepi.org/Docs/SDcardinstallation.html
+
+
+ 【启动lichee zero】
+  请准备一个usb转串口以查看启动log以及登录，参考原理图实物图正确连接UART0。
+  MicroUSB或者直接通过5V排针供电都可以，接排针时正负不要接反！！ 
+
+
+ 【扩展根目录添加swap分区】
+  启动成功后终端界面会提示输入用户名和密码，请测试root/toortoor，或者root/licheepi。
+  成功登录后可选择拓展rootfs分区，先重新分区，然后使用resize2fs命令。可以参考raspberrypi，orangepi的脚本。
+  如果你需要测试桌面，请一定要挂载swap分区！！！！
+
+
+ 【已知的问题】
+  lichee_zero_test_Debian_LXDE镜像添加的普通用户不能登录桌面环境，输入用户名密码后会跳回登录界面。
+  lichee_zero_test_Debian_LXDE镜像locale存在问题
+
+
+ 【ToDo】
+  测试RTL8723驱动并加入到dd镜像中
+  各种优化配置
+
+
+ 【下载地址】
+  http://pan.baidu.com/s/1hsj3XfY
+  
+
+  MoHenHM@163.com
+  QQ群，@Anonym 

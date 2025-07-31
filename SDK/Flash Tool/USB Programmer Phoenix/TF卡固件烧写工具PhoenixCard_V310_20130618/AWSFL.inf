@@ -1,0 +1,86 @@
+;;;
+;;; AWSFL
+;;;
+;;;
+
+[Version]
+signature  	= "$Windows NT$"
+Class		    = "ActivityMonitor"				                
+ClassGuid 	= {b86dff51-a31e-4bac-b3cf-e8cfe75c9fc2}
+Provider 	  = "AWSFL"
+DriverVer 	= 08/20/2010,1.01                                
+                                                          
+[DestinationDirs]
+DefaultDestDir	       = 12
+AWSFL.DriverFiles      = 12 			;%windir%\system32\drivers
+
+[SourceDisksNames]
+1 = %Disk1%
+
+[SourceDisksFiles]
+AWSFL.sys = 1
+
+;;
+;; Default install sections
+;;
+
+[DefaultInstall]
+OptionDesc          = %AWSFLServiceDesc%
+CopyFiles           = AWSFL.DriverFiles
+
+[DefaultInstall.Services]
+AddService          = %AWSFLServiceName%,,AWSFL.Service
+AddReg              = AWSFL.AddRegistry
+
+;;
+;; Default uninstall sections
+;;
+
+[DefaultUninstall]
+DelFiles   = AWSFL.DriverFiles
+DelReg     = AWSFL.DelRegistry
+
+[DefaultUninstall.Services]
+DelService = AWSFL,0x200		; Flags note to stop service first
+
+;
+; Services Section
+;
+
+[AWSFL.Service]
+DisplayName      = %AWSFLServiceName%
+Description      = %AWSFLServiceDesc%
+ServiceBinary    = %12%\AWSFL.sys		;%windir%\system32\drivers\AWSFL.sys
+ServiceType      = 2					      ;SERVICE_FILE_SYSTEM_DRIVER
+StartType        = 3					      ;SERVICE_DEMAND_START
+ErrorControl     = 1					      ;SERVICE_ERROR_NORMAL
+LoadOrderGroup   = "FSFilter Activity Monitor"
+AddReg			     = AWSFL.AddRegistry
+
+;
+; Registry Modifications
+;
+
+[AWSFL.AddRegistry]
+HKLM,%AWSFLRegistry%,%AWSFLDebugFlags%,0x00010001 ,0
+
+[AWSFL.DelRegistry]
+HKLM,%AWSFLRegistry%,%AWSFLDebugFlags%
+
+;
+; Copy Files
+;
+
+[AWSFL.DriverFiles]
+AWSFL.sys
+
+;;
+;; String Section
+;;
+
+[Strings]
+AWSFLServiceDesc  = "AWSFL Filter Driver"
+AWSFLServiceName  = "AWSFL"
+AWSFLRegistry     = "system\currentcontrolset\services\AWSFL"
+AWSFLDebugFlags   = "DebugFlags"
+Disk1             = "AWSFL Source Disk"
